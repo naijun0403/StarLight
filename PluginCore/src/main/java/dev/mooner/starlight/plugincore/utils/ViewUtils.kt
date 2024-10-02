@@ -69,7 +69,7 @@ class ViewBuilder(
     ) {
         val button = Button(context).apply(block)
         if (width != UNDEFINED || height != UNDEFINED)
-            button.params {
+            button.updateParams {
                 if (width != UNDEFINED)
                     this.width = width
                 if (height != UNDEFINED)
@@ -91,7 +91,7 @@ class ViewBuilder(
     ) {
         val textView = TextView(context).apply(block)
         if (width != UNDEFINED || height != UNDEFINED)
-            textView.params {
+            textView.updateParams {
                 if (width != UNDEFINED)
                     this.width = width
                 if (height != UNDEFINED)
