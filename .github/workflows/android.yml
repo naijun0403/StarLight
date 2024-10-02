@@ -39,7 +39,7 @@ jobs:
 
     - name: Extract artifact name
       run: |
-        name=find app/build/outputs/apk/debug/ -type f -name 'StarLight-*'
+        name="$(find app/build/outputs/apk/debug/ -type f -name 'StarLight-*')"
         echo "ARTIFACT_NAME=${name##*/}" >> $GITHUB_ENV
 
     - name: Upload the Artifact
