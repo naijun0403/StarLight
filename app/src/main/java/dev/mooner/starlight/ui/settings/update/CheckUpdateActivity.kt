@@ -240,22 +240,32 @@ private fun checkUpdate() {
                 downloadFileFromURL(this@ConfigActivity, version.downloadUrl, dest)
                     .onEach { (status, progress) ->
                         println("$status : ${progress}%")
-                        if (status == DownloadManager.STATUS_SUCCESSFUL) {
-                            alert.apply {
-                                setIcon(R.drawable.ic_round_check_24)
-                                setIconTint(R.color.noctis_green)
-                                setText("파일을 성공적으로 다운로드 했어요! (뿌듯)")
-                                setAutoHide(3000L)
-                            }.peek()
-                            val destUri = FileProvider.getUriForFile(this@ConfigActivity, "dev.mooner.starlight.provider", dest)
+                        when (status) {
+                            DownloadManager.STATUS_SUCCESSFUL -> {
+                                alert.apply {
+                                    setIcon(R.drawable.ic_round_check_24)
+                                    setIconTint(R.color.noctis_green)
+                                    setText("파일을 성공적으로 다운로드 했어요! (뿌듯)")
+                                    setAutoHide(3000L)
+                                }.peek()
+                                val destUri = FileProvider.getUriForFile(this@ConfigActivity, "dev.mooner.starlight.provider", dest)
 
-                            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                                if (!packageManager.canRequestPackageInstalls()) {
-                                    Toast.makeText(this@ConfigActivity, "먼저 앱 설치 권한을 허용해 주세요.", Toast.LENGTH_LONG).show()
-                                    requestAppInstallPermission()
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                    if (!packageManager.canRequestPackageInstalls()) {
+                                        Toast.makeText(this@ConfigActivity, "먼저 앱 설치 권한을 허용해 주세요.", Toast.LENGTH_LONG).show()
+                                        requestAppInstallPermission()
+                                    }
                                 }
+                                requestInstall(this@ConfigActivity, destUri)
                             }
-                            requestInstall(this@ConfigActivity, destUri)
+                            DownloadManager.STATUS_FAILED -> {
+                                alert.apply {
+                                    setIcon(R.drawable.ic_round_check_24)
+                                    setIconTint(R.color.noctis_green)
+                                    setText("파일 다운로드에 실패했어요.")
+                                    setAutoHide(3000L)
+                                }.peek()
+                            }
                         }
                     }
                     .launchIn(lifecycleScope)
