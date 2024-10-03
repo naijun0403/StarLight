@@ -190,6 +190,12 @@ class LegacyApi: Api<LegacyApi.Api>() {
         fun replyToID(roomID: Long, message: String, hideToast: Boolean = false): Boolean =
             replyToID(roomID.toString(), message, hideToast)
 
+        fun markAsReadOnID(roomID: String): Boolean =
+            NotificationListener.markAsReadByID(roomID)
+
+        fun markAsREadOnID(roomID: Long): Boolean =
+            markAsReadOnID(roomID.toString())
+
         fun canReply(room: String): Boolean {
             return NotificationListener.hasRoom(room)
         }
