@@ -13,6 +13,7 @@ import dev.mooner.starlight.CA_PLUGIN
 import dev.mooner.starlight.CF_SAFE_MODE
 import dev.mooner.starlight.R
 import dev.mooner.starlight.api.api2.AppApi
+import dev.mooner.starlight.api.api2.BotManagerApi
 import dev.mooner.starlight.api.api2.BroadcastApi
 import dev.mooner.starlight.api.legacy.*
 import dev.mooner.starlight.api.node.EventEmitterApi
@@ -137,6 +138,7 @@ object ApplicationSession {
             // Api2 Apis
             addApi(AppApi())
             addApi(BroadcastApi())
+            addApi(BotManagerApi())
         }
 
         Session.widgetManager.apply {

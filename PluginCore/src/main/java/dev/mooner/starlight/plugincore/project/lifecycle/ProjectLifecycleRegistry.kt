@@ -33,13 +33,14 @@ class ProjectLifecycleRegistry(
         flow
             .buffer(Channel.UNLIMITED)
             .onEach { state ->
-                if (observer is ProjectLifecycleObserver.StateObserver)
-                    observer.onUpdate(project, state)
-                else {
-                    observer as ProjectLifecycleObserver.ExplicitObserver
-                    getExplicitCallbackByState(observer, prevState, state)
-                        ?.invoke(project)
-                    prevState = state
+                when(observer) {
+                    is ProjectLifecycleObserver.StateObserver ->
+                        observer.onUpdate(project, state)
+                    is ProjectLifecycleObserver.ExplicitObserver -> {
+                        getExplicitCallbackByState(observer, prevState, state)
+                            ?.invoke(project)
+                        prevState = state
+                    }
                 }
             }
             .launchIn(scope)

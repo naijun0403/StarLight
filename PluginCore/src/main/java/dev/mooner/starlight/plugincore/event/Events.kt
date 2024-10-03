@@ -38,6 +38,14 @@ sealed class Events {
         ): Event, CoroutineScope by coroutineScope
     }
 
+    sealed class Message {
+
+        class Create(
+            val message: dev.mooner.starlight.plugincore.chat.Message,
+            val coroutineScope: CoroutineScope = eventHandlerScope()
+        ): Event, CoroutineScope by coroutineScope
+    }
+
     sealed class Project {
 
         class Create(

@@ -253,7 +253,7 @@ class ProjectImpl private constructor(
             if (threadPoolName != null) {
                 JobLocker.withParent(threadPoolName!!).purge()
             }
-            (mContext as CoroutineDispatcher).cancel()
+            (mContext as CoroutineDispatcher?)?.cancelChildren() // Could be null
             mContext = null
         }
     }

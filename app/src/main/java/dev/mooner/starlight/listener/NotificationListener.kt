@@ -167,6 +167,8 @@ class NotificationListener: NotificationListenerService() {
                             }
                         }
                     }
+
+                    EventHandler.fireEventWithScope(Events.Message.Create(data))
                     break
                     //stopSelf()
                 } catch (e: Exception) {

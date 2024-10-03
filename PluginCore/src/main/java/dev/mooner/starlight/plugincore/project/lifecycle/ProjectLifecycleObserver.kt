@@ -10,21 +10,21 @@ import dev.mooner.starlight.plugincore.project.Project
 
 sealed interface ProjectLifecycleObserver {
 
-    interface StateObserver: ProjectLifecycleObserver {
+    fun interface StateObserver: ProjectLifecycleObserver {
 
         fun onUpdate(project: Project, state: ProjectLifecycle.State)
     }
 
     interface ExplicitObserver: ProjectLifecycleObserver {
 
-        fun onCompileStart(project: Project)
+        fun onCompileStart(project: Project) {}
 
-        fun onCompileEnd(project: Project)
+        fun onCompileEnd(project: Project) {}
 
-        fun onEnable(project: Project)
+        fun onEnable(project: Project) {}
 
-        fun onDisable(project: Project)
+        fun onDisable(project: Project) {}
 
-        fun onDestroy(project: Project)
+        fun onDestroy(project: Project) {}
     }
 }

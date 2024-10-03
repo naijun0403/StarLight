@@ -4,17 +4,6 @@ import dev.mooner.starlight.plugincore.project.Project
 
 abstract class Api <T> {
 
-    /*
-    private var _project: Project? = null
-
-    protected val project: Project
-        get() = _project!!
-
-    internal fun setProject(project: Project) {
-        _project = project
-    }
-     */
-
     protected class ApiFunctionBuilder {
 
         var name: String? = null
