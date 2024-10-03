@@ -348,6 +348,8 @@ class NotificationListener: NotificationListenerService() {
             lastReceivedRoom?.markAsRead() ?: false
         fun markAsRead(roomName: String): Boolean =
             getRoomByName(roomName)?.markAsRead() ?: false
+        fun markAsReadByID(roomID: RoomID): Boolean =
+            chatRooms[roomID]?.markAsRead() ?: false
     }
 
     private fun onGlobalConfigUpdated(event: Events.Config.GlobalConfigUpdate) =
