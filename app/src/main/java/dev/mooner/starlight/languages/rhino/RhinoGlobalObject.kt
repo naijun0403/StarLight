@@ -8,9 +8,7 @@ package dev.mooner.starlight.languages.rhino
 
 import android.widget.Toast
 import dev.mooner.starlight.core.GlobalApplication
-import dev.mooner.starlight.plugincore.project.JobLocker
 import dev.mooner.starlight.plugincore.project.Project
-import dev.mooner.starlight.plugincore.project.withProject
 import kotlinx.coroutines.*
 import org.mozilla.javascript.Context
 import org.mozilla.javascript.Function
@@ -29,7 +27,7 @@ class RhinoGlobalObject(
 
     private val timeouts: ConcurrentMap<TimeoutID, Job> = ConcurrentHashMap()
     private val timeoutScope: CoroutineScope by lazy {
-        CoroutineScope(Dispatchers.Default + SupervisorJob())
+        CoroutineScope(project.coroutineContext + SupervisorJob())
     }
 
     override fun getClassName(): String {
@@ -75,7 +73,7 @@ class RhinoGlobalObject(
 
     @JSFunction
     fun setTimeout(callback: Function, delay: Any?): TimeoutID {
-        val key = JobLocker.withProject(project).requestLock()
+        //val key = JobLocker.withProject(project).requestLock()
         val mDelay = delay.getOrThrow<Long>()
 
         val id = generateID()
@@ -91,7 +89,7 @@ class RhinoGlobalObject(
             invokeOnCompletion {
                 if (id in timeouts)
                     timeouts -= id
-                JobLocker.withProject(project).tryRelease(key)
+                //JobLocker.withProject(project).tryRelease(key)
             }
         }
         timeouts[id] = job
