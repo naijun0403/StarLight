@@ -93,7 +93,7 @@ class NotificationRulesActivity : AppCompatActivity() {
                 text = "정보 저장 성공!"
             ) {
                 position = PeekAlert.Position.Bottom
-                iconRes = R.drawable.ic_round_check_24
+                iconRes = dev.mooner.configdsl.R.drawable.ic_round_check_24
                 iconTint(res = R.color.noctis_green)
                 backgroundColor(res = R.color.background_popup)
             }.peek()

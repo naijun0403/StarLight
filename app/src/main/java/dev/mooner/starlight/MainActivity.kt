@@ -8,8 +8,14 @@ package dev.mooner.starlight
 
 import android.os.Bundle
 import android.view.ViewGroup
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import androidx.core.content.edit
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowCompat
+import androidx.core.view.WindowInsetsCompat
+import androidx.core.view.updatePadding
 import androidx.transition.ChangeBounds
 import androidx.transition.TransitionManager
 import androidx.viewpager2.widget.ViewPager2
@@ -33,9 +39,31 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        enableEdgeToEdge()
+
         binding = ActivityMainBinding.inflate(layoutInflater)
         val view = binding.root
         setContentView(view)
+
+        WindowCompat.setDecorFitsSystemWindows(window, false)
+
+        ViewCompat.setOnApplyWindowInsetsListener(binding.root) { view, windowInsets ->
+            val insets = windowInsets.getInsets(
+                WindowInsetsCompat.Type.systemBars() or WindowInsetsCompat.Type.displayCutout()
+            )
+
+            window.navigationBarColor = ContextCompat.getColor(this, R.color.cardview)
+
+            // Apply the insets as padding to the view. Here, set all the dimensions
+            // as appropriate to your layout. You can also update the view's margin if
+            // more appropriate.
+            view.updatePadding(0, insets.top, 0, insets.bottom)
+
+            // Return CONSUMED if you don't want the window insets to keep passing down
+            // to descendant views.
+            WindowInsetsCompat.CONSUMED
+        }
 
         bindLogNotifier { log ->
             !log.message.startsWith("ECOMF: ") && !(log.flags hasFlag LogData.FLAG_COMPILE_RESULT)

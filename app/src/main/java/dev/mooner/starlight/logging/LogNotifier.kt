@@ -158,7 +158,7 @@ private fun PeekAlertBuilder.setCommonAttrs() {
     position = PeekAlert.Position.Top
     width = LayoutParams.WRAP_CONTENT
     cornerRadius = dp(14).toFloat()
-    iconRes = R.drawable.ic_round_mark_chat_unread_24
+    iconRes = dev.mooner.configdsl.R.drawable.ic_round_mark_chat_unread_24
     iconTint(res = R.color.white)
     draggable = true
 }

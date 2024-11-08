@@ -131,7 +131,7 @@ class ProjectListItem(
 
                     val tintColor = if (project.info.isPinned) R.color.code_yellow else R.color.text
                     buttonProjectPin
-                        .loadWithTint(R.drawable.ic_round_star_24, tintColor)
+                        .loadWithTint(dev.mooner.configdsl.R.drawable.ic_round_star_24, tintColor)
                 }
             }
         }
@@ -174,7 +174,7 @@ class ProjectListItem(
                 val tintColor = if (project.info.isPinned) R.color.code_yellow else R.color.text
 
                 innerBinding?.buttonProjectPin
-                    ?.loadWithTint(R.drawable.ic_round_star_24, tintColor)
+                    ?.loadWithTint(dev.mooner.configdsl.R.drawable.ic_round_star_24, tintColor)
                 project.saveInfo()
             }
         }

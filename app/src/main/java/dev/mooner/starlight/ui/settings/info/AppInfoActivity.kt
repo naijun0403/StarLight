@@ -46,7 +46,7 @@ class AppInfoActivity : AppCompatActivity() {
 
         configAdapter = ConfigAdapter.Builder(this) {
             bind(binding.recyclerView)
-            structure { getConfig(pInfo.versionName, versionCode) }
+            structure { getConfig(pInfo.versionName!!, versionCode) }
             configData(hashMapOf())
             lifecycleOwner(this@AppInfoActivity)
         }.build()

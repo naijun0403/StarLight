@@ -519,7 +519,7 @@ class DefaultEditorActivity : CodeEditorActivity(), WebviewCallback {
                     delay(300L)
                     peek.apply {
                         setAutoHide(3000L)
-                        setIcon(R.drawable.ic_round_check_24)
+                        setIcon(dev.mooner.configdsl.R.drawable.ic_round_check_24)
                         setText(translate {
                             Locale.ENGLISH { "Successfully compiled [${project.info.name}]!" }
                             Locale.KOREAN  { "프로젝트 [${project.info.name}] 컴파일 완료!" }
@@ -856,7 +856,7 @@ class DefaultEditorActivity : CodeEditorActivity(), WebviewCallback {
             Locale.ENGLISH { "Saved $savedCount files" }
             Locale.KOREAN  { "${savedCount}개 파일 저장 완료" }
         }) {
-            iconRes = R.drawable.ic_round_check_24
+            iconRes = dev.mooner.configdsl.R.drawable.ic_round_check_24
             iconTint(R.color.noctis_green)
         }.apply {
             setTextColor(R.color.text_clear)
@@ -951,7 +951,7 @@ class DefaultEditorActivity : CodeEditorActivity(), WebviewCallback {
                         Locale.ENGLISH { "Project isn't compiled yet." }
                         Locale.KOREAN  { "아직 프로젝트가 컴파일 되지 않았어요." }
                     }) {
-                        iconRes = R.drawable.ic_round_close_24
+                        iconRes = dev.mooner.configdsl.R.drawable.ic_round_close_24
                         backgroundColor(R.color.orange)
                     }.apply {
                         setTextColor(R.color.white)

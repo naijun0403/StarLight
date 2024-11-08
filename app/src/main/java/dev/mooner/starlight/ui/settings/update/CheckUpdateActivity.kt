@@ -138,7 +138,7 @@ private fun checkUpdate() {
         }
     ) {
         position = PeekAlert.Position.Bottom
-        iconRes = R.drawable.ic_round_cloud_24
+        iconRes = dev.mooner.configdsl.R.drawable.ic_round_cloud_24
         iconTint(res = R.color.main_bright)
         backgroundColor(res = R.color.background_popup)
     }.peek()
@@ -163,7 +163,7 @@ private fun checkUpdate() {
                 }
             ) {
                 position = PeekAlert.Position.Bottom
-                iconRes = R.drawable.ic_round_close_24
+                iconRes = dev.mooner.configdsl.R.drawable.ic_round_close_24
                 iconTint(res = R.color.code_error)
                 backgroundColor(res = R.color.background_popup)
             }.peek()
@@ -182,7 +182,7 @@ private fun checkUpdate() {
                 }
             ) {
                 position = PeekAlert.Position.Bottom
-                iconRes = R.drawable.ic_round_check_24
+                iconRes = dev.mooner.configdsl.R.drawable.ic_round_check_24
                 iconTint(res = R.color.noctis_green)
                 backgroundColor(res = R.color.background_popup)
             }.peek()
@@ -231,7 +231,7 @@ private fun checkUpdate() {
                     text = "다운로드중..."
                 ) {
                     position = PeekAlert.Position.Bottom
-                    iconRes = R.drawable.ic_round_download_24
+                    iconRes = dev.mooner.configdsl.R.drawable.ic_round_download_24
                     iconTint(res = R.color.main_bright)
                     backgroundColor(res = R.color.background_popup)
                     autoHideMillis = null
@@ -243,7 +243,7 @@ private fun checkUpdate() {
                         when (status) {
                             DownloadManager.STATUS_SUCCESSFUL -> {
                                 alert.apply {
-                                    setIcon(R.drawable.ic_round_check_24)
+                                    setIcon(dev.mooner.configdsl.R.drawable.ic_round_check_24)
                                     setIconTint(R.color.noctis_green)
                                     setText("파일을 성공적으로 다운로드 했어요! (뿌듯)")
                                     setAutoHide(3000L)
@@ -260,7 +260,7 @@ private fun checkUpdate() {
                             }
                             DownloadManager.STATUS_FAILED -> {
                                 alert.apply {
-                                    setIcon(R.drawable.ic_round_check_24)
+                                    setIcon(dev.mooner.configdsl.R.drawable.ic_round_check_24)
                                     setIconTint(R.color.noctis_green)
                                     setText("파일 다운로드에 실패했어요.")
                                     setAutoHide(3000L)
