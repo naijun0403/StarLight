@@ -81,7 +81,7 @@ class ProjectEventSelectionAdapter(
                 cardWrapper.setCardBackgroundColor(color { "#50AD977A" })
             } else {
                 cardWrapper.strokeWidth = 0
-                cardWrapper.setCardBackgroundColor(context.getColor(R.color.background_selection_card))
+                cardWrapper.setCardBackgroundColor(context.getColor(dev.mooner.configdsl.R.color.background_selection_card))
             }
 
             ivIcon.load(iconFile) {

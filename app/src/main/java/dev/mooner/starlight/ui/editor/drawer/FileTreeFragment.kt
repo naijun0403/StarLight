@@ -98,11 +98,11 @@ class FileTreeFragment : Fragment() {
             setCommonAttrs()
             val items = listOf(
                 BasicGridItem(
-                    iconRes = R.drawable.ic_round_folder_24,
+                    iconRes = dev.mooner.configdsl.R.drawable. ic_round_folder_24,
                     title = titleDir
                 ),
                 BasicGridItem(
-                    iconRes = R.drawable.ic_round_file_24,
+                    iconRes = dev.mooner.configdsl.R.drawable.ic_round_file_24,
                     title = titleFile
                 )
             )

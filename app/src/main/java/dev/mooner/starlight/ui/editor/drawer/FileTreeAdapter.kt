@@ -35,7 +35,7 @@ class FileTreeAdapter(
             DefaultEditorActivity.Language.PYTHON     -> R.drawable.ic_python
             else -> {
                 if (file.isDirectory)
-                    R.drawable.ic_round_folder_24
+                    dev.mooner.configdsl.R.drawable.ic_round_folder_24
                 else
                     null
             }

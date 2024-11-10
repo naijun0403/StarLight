@@ -165,7 +165,7 @@ class PluginsFragment : Fragment(), OnClickListener {
                     text = "${file.name} 로드 완료, 다음 재시작 시 적용됩니다."
                 ) {
                     position = PeekAlert.Position.Bottom
-                    iconRes = R.drawable.ic_round_check_24
+                    iconRes = dev.mooner.configdsl.R.drawable.ic_round_check_24
                     iconTint(res = R.color.noctis_green)
                     backgroundColor(res = R.color.background_popup)
                 }.peek()

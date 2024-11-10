@@ -295,7 +295,7 @@ class LogsFragment : Fragment(), OnClickListener {
                     title = getString(R.string.log_type_card),
                 ),
                 BasicGridItem(
-                    iconRes = R.drawable.ic_round_format_list_bulleted_24,
+                    iconRes = dev.mooner.configdsl.R.drawable.ic_round_format_list_bulleted_24,
                     title = getString(R.string.log_type_text),
                 ),
             )

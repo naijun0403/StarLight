@@ -193,7 +193,7 @@ class LegacyApi: Api<LegacyApi.Api>() {
         fun markAsReadOnID(roomID: String): Boolean =
             NotificationListener.markAsReadByID(roomID)
 
-        fun markAsREadOnID(roomID: Long): Boolean =
+        fun markAsReadOnID(roomID: Long): Boolean =
             markAsReadOnID(roomID.toString())
 
         fun canReply(room: String): Boolean {

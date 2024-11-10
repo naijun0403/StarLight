@@ -42,7 +42,7 @@ class PlatformApi: Api<PlatformApi.Platform>() {
                 GlobalApplication
                     .requireContext()
                     .getPackageInfo()
-                    .versionName
+                    .versionName ?: "Unknown"
 
             @JvmStatic
             fun getUptime(): Long =

@@ -38,11 +38,11 @@ abstract class Widget: LifecycleOwner, LifecycleEventObserver {
 
     override fun hashCode(): Int = this.id.hashCode()
 
-//    override val lifecycle get() = lifecycleRegistry
+    override val lifecycle get() = lifecycleRegistry
 
-    override fun getLifecycle(): Lifecycle {
-        return lifecycleRegistry
-    }
+//    override fun getLifecycle(): Lifecycle {
+//        return lifecycleRegistry
+//    }
 
     override fun onStateChanged(source: LifecycleOwner, event: Lifecycle.Event) {
         try {
