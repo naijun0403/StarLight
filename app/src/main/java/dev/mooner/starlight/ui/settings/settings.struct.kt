@@ -235,7 +235,7 @@ internal fun getSettingsStruct() = config {
                 icon = Icon.FAVORITE
                 iconTintColor = color { "#FF90BC" }
                 setOnClickListener { _ ->
-                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://toss.me/mooner"))
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://buymeacoffee.com/mooner"))
                     startActivity(intent)
                 }
             }
@@ -364,6 +364,17 @@ internal fun getNoobSettingStruct() = config {
                 iconTintColor = color { "#F1CA89" }
                 setOnClickListener { _ ->
                     startActivity(Intent(context, AppInfoActivity::class.java))
+                }
+            }
+            button {
+                id = "help_dev"
+                title = "개발자 돕기"
+                description = "이 개발자는 자원봉사 중이에요.."
+                icon = Icon.FAVORITE
+                iconTintColor = color { "#FF90BC" }
+                setOnClickListener { _ ->
+                    val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://buymeacoffee.com/mooner"))
+                    startActivity(intent)
                 }
             }
             if (GlobalConfig.category("dev").getBoolean("dev_mode") == true) {
