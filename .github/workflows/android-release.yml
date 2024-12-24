@@ -2,6 +2,11 @@ name: Android CI Release
  
 on:
   workflow_dispatch:
+    inputs:
+      build_version:
+        description: 'Define version code'
+        required: true
+        default: '7'
  
 jobs:
   build:
@@ -26,6 +31,12 @@ jobs:
         
     - name: Grant execute permission for gradlew
       run: chmod +x gradlew
+
+    - name: Bump versionCode
+      uses: chkfung/android-version-actions@v1.2.2
+      with:
+        gradlePath: app/build.gradle.kts
+        versionCode: 1000${{github.event.inputs.build_version}}
  
     - name: Build release
       run: ./gradlew assembleRelease
