@@ -129,7 +129,7 @@ class ProjectLogger private constructor(
         if (data.type != LogType.DEBUG) {
             synchronized(_logs) {
                 if (_logs.size > LOGS_MAX_SIZE)
-                    _logs.removeFirst()
+                    _logs.removeAt(0)
                 _logs += data
                 flush()
             }
